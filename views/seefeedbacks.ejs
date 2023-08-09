@@ -1,0 +1,64 @@
+<%- include('./partials/messages.ejs'); %>
+ <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('./partials/sideMenuAdmin.ejs'); %>
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('./partials/top_nav.ejs'); %>
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="card shadow mb-4">
+                      
+                      <div class="card-body mt-5">
+                          <div class="table-responsive">
+
+                    <!-- Main Content -->
+                    <% feedback.forEach(feedback => { %>
+                      <div class="card border-bottom-primary mb-3">
+                        <div class="d-flex gap-5 p-2">
+                            <img src="<%= feedback.senderavatar%>" alt="" class="logo-img rounded-circle mr-2 mt-2" style="width: 50px; height: 50px;">
+                            <div class="card-detail ">
+                              <a href="/viewpatients/<%=user.id%>" class="nav-link">
+                                <%= feedback.name %>
+                                <p><sup><%= feedback.date.toDateString()%></sup></p>
+                                 </a>
+                                 <p>
+                                  <%= feedback.message%>
+                                 </p>
+
+                            </div>
+                          </div>
+                          <!-- /.container-fluid -->
+                          
+                        </div>
+                        <% }) %> 
+            <!-- End of Main Content -->
+                          </div>
+                      </div>
+                    </div>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>

@@ -1,0 +1,114 @@
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+
+  <%- include('./partials/sideMenuDr.ejs'); %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+          <!-- Main Content -->
+          <div id="content">
+
+              <!-- Topbar -->
+              <%- include('./partials/top_nav.ejs'); %>
+              <!-- End of Topbar -->
+              
+  
+            
+
+      <div class="container">
+  
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-6 mt-5">
+
+                <div class="card o-hidden border-0 shadow-lg ">
+                    <div class="card-body p-3">
+                        <!-- Nested Row within Card Body -->
+                        <section>
+                          <div id="details" class=" card p-2">
+                            <ul class="list-group list-group-flush">
+                              <%- include('./partials/messages.ejs'); %>
+                              <li class="list-group-item hvr-grow-shadow mt-2"><b>Days:</b>
+                                <% if (availData) { %>
+                                <h5><%=availData.days%></h5>
+                                <% } %>
+                      
+                              </li>
+                              <li class="list-group-item hvr-grow-shadow"><b>Time:</b>
+                                <% if (availData) { %>
+                                <h5><%=availData.time.startTime%> - <%=availData.time.endTime%></h5>
+                                <% } %>
+                              </li>
+                              
+                              <li class="list-group-item hvr-grow-shadow"><b>Shift:</b>
+                                <% if (availData) { %>
+                                <h5><%=availData.shift %></h5>
+                                <% } %>
+                      
+                              </li>
+                      
+                              <br>
+                              <a href="/doctor/setAvailability" class="set btn btn-success mb-2">Set
+                                Availability</a>
+                              <a href="/doctor/updateAvailability" class="update btn btn-success mb-2">Update
+                                Availability</a>
+                            </ul>
+                            
+                          </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+          <!-- End of Content Wrapper -->
+
+    <!-- /.container-fluid -->
+
+</div>
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+  </a>
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <script>
+    function isEmpty(check) {
+      return !$.trim(check.html())
+    }
+    if (isEmpty($('h5'))) {
+      ($('.update').hide())
+    } else
+      ($('.set').hide())
+  </script>

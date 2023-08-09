@@ -1,0 +1,128 @@
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+
+  <%- include('./partials/sideMenuDr.ejs'); %>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+          <!-- Main Content -->
+          <div id="content">
+
+              <!-- Topbar -->
+              <%- include('./partials/topbarDr.ejs'); %>
+              <!-- End of Topbar -->
+              
+
+              <form
+              class="p-3"
+              action="/doctor/update_availability"
+              method="POST"
+              autocomplete="off"
+            >
+                  <div>
+                    <div id="details" class="card">
+                      <div class="card-body">
+                        <div>
+                          <label class="lead">Available Days</label><br />
+                          <input
+                            type="text"
+                            id="daysPicker"
+                            name="days"
+                            placeholder="Choose the days..."
+                            class="form-control"
+                          />
+                          <br />
+                        </div>
+                        <div class="form-group">
+                          <label class="lead">Available Time</label>
+                          <div class="form-row">
+                            <div>
+                              <label class="lead" style="font-size: 18px" for="title">Start Time</label>
+                              <input type="text" name="startTime" id="Time"
+                                placeholder="Select time" class="form-control datepicker">
+                            </div>
+
+                            <br />
+                            <div>
+                              <label class="lead" style="font-size: 18px" for="title">End Time</label>
+                              <input type="text" name="endTime" id="Time"
+                                placeholder="Select time" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="lead"><b>Shift</b></label>
+                          <select name="shift" class="form-control">
+                            <option name="day">Day</option>
+                            <option name="night">Night</option>
+                          </select>
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-success">
+                          Set Availability
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+            </form>
+
+          </div>
+          <!-- End of Main Content -->
+
+        
+      </div>
+      <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+
+    // Initialize Flatpickr
+    const daysPicker = document.querySelector("#daysPicker");
+   
+   flatpickr(daysPicker, {
+     minDate: "today",
+     mode: "multiple",
+     dateFormat: "l",
+     inline: false,
+   });
+   
+       flatpickr("#Time", {
+         enableTime: true,
+         noCalendar: true,
+         dateFormat: "h:i K",
+         time_24hr: false,
+       });
+     </script>

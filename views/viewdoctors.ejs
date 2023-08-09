@@ -1,0 +1,76 @@
+<%- include('./partials/messages.ejs'); %>
+ <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('./partials/sidebar.ejs'); %>
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('./partials/top_nav.ejs'); %>
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Speciality</th>
+                                            <th>Details</th>
+                                            <th>Appointment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <% doctors.forEach(Doctor => { %>
+                                            <td>
+                                                <img id="senderavatar" src="<%= Doctor.imageUrl%>" class=" img-fluid" style="width: 10%;"></img>
+                                                <b><%=(Doctor.salutation)+" "+ (Doctor.name)%></b></td>
+                                              <td><span class="font-weight-bold"><%= Doctor.speciality %></span></td>
+                                              <td><a href="/patient/<%=Doctor.id%>" class=" btn btn-success"><p class="mb-0">View More</p>Details</a></td>
+                                              <td><a href="/makeAppointment/<%=Doctor.id%>" class="btn btn-primary"><p class="mb-0 ml-2 mr-2"> Appoint</p>Doctor</a></td>
+                                              <% }) %> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
